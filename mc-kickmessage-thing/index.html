@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minecraft Kick Message Preview</title>
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('fonts/MCRegular.otf') format('opentype');
+        }
+
+        body {
+            font-family: 'CustomFont', sans-serif;
+            color: white;
+            text-align: center;
+            margin: 30px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #0066cc;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #0066cc;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+            color: white;
+        }
+
+        textarea {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 16px;
+            padding: 5px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 8px 20px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0052a3;
+        }
+
+        #preview {
+            font-size: 36px;
+            margin-top: 20px;
+            padding: 10px;
+            white-space: pre-wrap;
+        }
+
+        #kickScreen {
+            position: relative;
+            width: 1000px;
+            height: 400px;
+            margin: 50px auto;
+            font-size: 20px;
+            background-image: url('img/previewBG.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #backButton {
+            padding-top: 15px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>MC KickMessage Preview Thing</h1>
+    <label for="kickMessage">Enter the kick message:</label>
+    <br>
+    <textarea id="kickMessage" rows="4" cols="50">You have been kicked from the server.</textarea>
+    <br>
+    <button onclick="generatePreview()">Preview Kick Message</button>
+    <br>
+    <h2>Output:</h2>
+    <div id="kickScreen">
+        <div id="kickMessageText"></div>
+        <img id="backButton" src="img/backToServerList.png"></img>
+    </div>
+
+    <script>
+        function formatKickMessage(message) {
+            const colorMap = {
+                '0': 'black', '1': '#0000AA', '2': '#00AA00', '3': '#00AAAA', '4': '#AA0000',
+                '5': '#AA00AA', '6': '#FFAA00', '7': '#AAAAAA', '8': '#555555', '9': '#5555FF', 'a': '#55FF55',
+                'b': '#55FFFF', 'c': '#FF5555', 'd': '#FF55FF', 'e': '#FFFF55', 'f': '#FFFFFF',
+                'r': 'white', // Reset
+            };
+    
+            // Replace Minecraft color codes with HTML spans for formatting
+            message = message.replace(/&([0-9a-fA-Fkl-o]{1,2})/ig, (match, colorCode) => {
+                const color = colorMap[colorCode];
+                return `${color}`;
+            });
+    
+            // Replace hexadecimal color codes with HTML spans for coloring
+            message = message.replace(/#([0-9a-fA-F]{6})/ig, (match, hexCode) => {
+                const color = `#${hexCode}`;
+                return `<span style='color: ${color};'>`;
+            });
+    
+            // Close any open spans (in case of invalid formatting)
+            message = message.replace(/&r/ig, "</span>");
+            
+            console.log(message);
+            return message;
+        }
+    
+        function generatePreview() {
+            const kickMessage = document.getElementById("kickMessage").value;
+            const formattedMessage = formatKickMessage(kickMessage);
+            document.getElementById("kickMessageText").innerHTML = formattedMessage;
+        }
+    </script>    
+</body>
+</html>
