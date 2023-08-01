@@ -4,12 +4,22 @@
     <title>Minecraft Kick Message Preview</title>
     <style>
         @font-face {
-            font-family: 'CustomFont';
+            font-family: 'MCReg';
             src: url('fonts/MCRegular.otf') format('opentype');
         }
 
+        @font-face {
+            font-family: 'MCBold';
+            src: url('fonts/MCBold.otf') format('opentype');
+        }
+
+        @font-face {
+            font-family: 'MCItalic';
+            src: url('fonts/MCItalic.otf') format('opentype');
+        }
+
         body {
-            font-family: 'CustomFont', sans-serif;
+            font-family: 'MCReg', sans-serif;
             color: white;
             text-align: center;
             margin: 30px;
@@ -32,7 +42,7 @@
         }
 
         textarea {
-            font-family: 'CustomFont', sans-serif;
+            font-family: 'MCReg', sans-serif;
             font-size: 16px;
             padding: 5px;
             border: 2px solid #ccc;
@@ -95,6 +105,9 @@
     </div>
 
     <script>
+        let isBold = false;
+        let isItalic = false;
+
         function formatKickMessage(message) {
             const colorMap = {
                 '0': 'black', '1': '#0000AA', '2': '#00AA00', '3': '#00AAAA', '4': '#AA0000',
@@ -102,31 +115,52 @@
                 'b': '#55FFFF', 'c': '#FF5555', 'd': '#FF55FF', 'e': '#FFFF55', 'f': '#FFFFFF',
                 'r': 'white', // Reset
             };
-    
-            // Replace Minecraft color codes with HTML spans for formatting
-            message = message.replace(/&([0-9a-fA-Fkl-o]{1,2})/ig, (match, colorCode) => {
+            isBold = false;
+            isItalic = false;
+        
+            message = message.replace(/&([0-9a-fA-Fkl-o]{1})/ig, (match, colorCode) => {
+            if (colorCode == "l") {
+                isBold = true;
+                return '&l';
+            } else if (colorCode == "o") {
+                console.log("bold");
+                isItalic = true;
+                return '&o';
+            } else {
                 const color = colorMap[colorCode];
+                isBold = false;
                 return `${color}`;
-            });
-    
-            // Replace hexadecimal color codes with HTML spans for coloring
-            message = message.replace(/#([0-9a-fA-F]{6})/ig, (match, hexCode) => {
-                const color = `#${hexCode}`;
-                return `<span style='color: ${color};'>`;
-            });
-    
-            // Close any open spans (in case of invalid formatting)
-            message = message.replace(/&r/ig, "</span>");
-            
-            console.log(message);
-            return message;
-        }
-    
-        function generatePreview() {
-            const kickMessage = document.getElementById("kickMessage").value;
-            const formattedMessage = formatKickMessage(kickMessage);
-            document.getElementById("kickMessageText").innerHTML = formattedMessage;
-        }
-    </script>    
+            }
+        });
+
+        // Replace hexadecimal color codes with HTML spans for coloring
+        message = message.replace(/#([0-9a-fA-F]{6})/ig, (match, hexCode) => {
+            const color = `#${hexCode}`;
+            return `<span style='color: ${color};'>`;
+        });
+
+        // Process bold tags
+        message = message.replace(/&l/ig, (match, content) => {
+            return `<span style='font-family: "MCBold";'>`;
+        });
+
+        message = message.replace(/&o/ig, (match, content) => {
+            return `<span style='font-family: "MCItalic";'>`;
+        });
+
+        // Close any open spans (in case of invalid formatting)
+        message = message.replace(/&r/ig, "</span>");
+
+        message = message.replace(/\n/g, "<br>");
+
+        return message;
+    }
+
+    function generatePreview() {
+        const kickMessage = document.getElementById("kickMessage").value;
+        const formattedMessage = formatKickMessage(kickMessage);
+        document.getElementById("kickMessageText").innerHTML = formattedMessage;
+    }
+</script>
 </body>
 </html>
