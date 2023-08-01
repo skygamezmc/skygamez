@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>My Minecraft Developer Portfolio</title>
+        <style>
+            @font-face {
+                font-family: 'MC Bold';
+                src: url('fonts/MCBold.otf') format('opentype');
+                font-weight: bold;
+            }
+    
+            @font-face {
+                font-family: 'MC Bold Italic';
+                src: url('fonts/MCBoldItalic.otf') format('opentype');
+                font-weight: bold;
+                font-style: italic;
+            }
+    
+            @font-face {
+                font-family: 'MC Italic';
+                src: url('fonts/MCItalic.otf') format('opentype');
+                font-style: italic;
+            }
+    
+            @font-face {
+                font-family: 'MC Regular';
+                src: url('fonts/MCRegular.otf') format('opentype');
+                font-weight: normal;
+            }
+    
+            body {
+                background-image: url('img/bg.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                color: #fff;
+                font-family: 'MC Regular', Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+    
+            .container {
+                max-width: 800px;
+                padding: 20px;
+                position: relative;
+            }
+    
+            .container::before {
+                content: "";
+                position: absolute;
+                top: -10px;
+                left: -10px;
+                right: -10px;
+                bottom: -10px;
+                background-color: rgba(30, 144, 255, 0.4); /* Translucent blue overlay */
+                backdrop-filter: blur(5px); /* Blurred effect */
+                z-index: -1;
+                border-radius: 15px; /* Rounded corners */
+                box-shadow: 0 0 20px rgba(30, 144, 255, 0.6); /* Slight border */
+            }
+    
+            h1 {
+                font-family: 'MC Bold', Arial, sans-serif;
+                color: #2b2b2b;
+            }
+    
+            h2 {
+                font-family: 'MC Bold Italic', Arial, sans-serif;
+                color: #2b2b2b;
+            }
+    
+            a {
+                color: #2b2b2b;
+                text-decoration: none;
+            }
+    
+            a:hover {
+                color: #969696;
+            }
+    
+            .section {
+                margin-bottom: 30px;
+            }
+        </style>
+</head>
+<body>
+    <div class="container">
+        <header class="section">
+            <h1>About Me - Minecraft Developer</h1>
+            <p>
+                Hi, I'm Sky, your friendly neighborhood Minecraft developer. I've developed many
+                projects with some of them being solo passion or side projects, and some of them being
+                commercial projects. I have taken on ownership roles in various servers, most notably my
+                solo developer and owner role in both MeliorMC and WoolMC. I have over 3+ years of Java
+                experience aswell as experience in a multitude of languages like C#, HTML, CSS, JavaScript
+                Python, Node.JS, and SQL. I have also taken on development on many different game development
+                projects via the Unity game engine. I also publish some of my resources to SpigotMC (<a href="https://www.spigotmc.org/resources/authors/skygamez.1047344/">Check them out</a>) I am also currently
+                involved in the development of LumenMC (<a href="https://lumenmc.org">LumenMC Website</a>)
+            </p>
+        </header>
+
+        <section class="section">
+            <h2>My Tools and Services</h2>
+            <ul>
+                <li><a href="#link-to-your-tool-or-service-1">Minecraft Gradient Generator</a></li>
+                <!-- Add more items as needed -->
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2>Contact Me</h2>
+            <p>
+                You can reach me through these places:
+                <br>
+                Discord: skyygamez
+                <br>
+                SpigotMC: <a href="https://www.spigotmc.org/members/skygamez.1047344/">SkyGameZ</a>
+            </p>
+        </section>
+    </div>
+</body>
+</html>
