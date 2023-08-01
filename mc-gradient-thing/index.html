@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MC Gradient Thing</title>
+    <style>
+        @font-face {
+            font-family: 'CustomFont';
+            src: url('fonts/MCRegular.otf') format('opentype');
+        }
+
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            margin: 30px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-family: 'CustomFont', sans-serif;
+            color: #0066cc;
+        }
+
+        label {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            font-size: 16px;
+            padding: 5px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            font-size: 18px;
+            padding: 8px 20px;
+            background-color: #0066cc;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0052a3;
+        }
+
+        #preview {
+            font-family: 'CustomFont', sans-serif;
+            font-size: 36px;
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        #rawOutput {
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #e6e6e6;
+            border-radius: 5px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>MC Gradient Thing</h1>
+    <label for="startColor">Enter the starting color code (hex): </label>
+    <input type="text" id="startColor" value="#ff0000">
+    <br>
+    <label for="endColor">Enter the ending color code (hex): </label>
+    <input type="text" id="endColor" value="#0000ff">
+    <br>
+    <label for="word">Enter a word: </label>
+    <input type="text" id="word" value="Gradient">
+    <br>
+    <label for="includeAmpersand">Include "&" sign in Raw Output:</label>
+    <input type="checkbox" id="includeAmpersand">
+    <br>
+    <button onclick="generateGradient()">Generate Gradient</button>
+    <br>
+    <div id="preview"></div>
+    <h2>Output:</h2>
+    <div id="rawOutput"></div>
+
+    <script>
+        function hexToRgb(hexCode) {
+            hexCode = hexCode.replace("#", "");
+            const r = parseInt(hexCode.substr(0, 2), 16);
+            const g = parseInt(hexCode.substr(2, 2), 16);
+            const b = parseInt(hexCode.substr(4, 2), 16);
+            return [r, g, b];
+        }
+
+        function rgbToHex(rgbCode) {
+            return "#" + rgbCode.map(c => c.toString(16).padStart(2, "0")).join("");
+        }
+
+        function generateGradient() {
+            const startColor = document.getElementById("startColor").value;
+            const endColor = document.getElementById("endColor").value;
+            const word = document.getElementById("word").value;
+            const includeAmpersand = document.getElementById("includeAmpersand").checked;
+
+            const gradientSteps = word.length;
+            const startRgb = hexToRgb(startColor);
+            const endRgb = hexToRgb(endColor);
+
+            const rStep = (endRgb[0] - startRgb[0]) / gradientSteps;
+            const gStep = (endRgb[1] - startRgb[1]) / gradientSteps;
+            const bStep = (endRgb[2] - startRgb[2]) / gradientSteps;
+
+            let gradientPreview = "";
+            let rawOutput = "";
+
+            for (let i = 0; i < gradientSteps; i++) {
+                const r = Math.round(startRgb[0] + rStep * i);
+                const g = Math.round(startRgb[1] + gStep * i);
+                const b = Math.round(startRgb[2] + bStep * i);
+                const color = rgbToHex([r, g, b]);
+                const coloredLetter = `${includeAmpersand ? "&" : ""}${color}${word[i]}`;
+                gradientPreview += `<span style="color: ${color}">${word[i]}</span>`;
+                rawOutput += coloredLetter;
+            }
+
+            document.getElementById("preview").innerHTML = gradientPreview;
+            document.getElementById("rawOutput").innerText = rawOutput;
+        }
+    </script>
+</body>
+</html>
