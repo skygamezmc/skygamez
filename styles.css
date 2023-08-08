@@ -13,6 +13,7 @@ body {
 
 .navbar {
   background-color: #3d84ff; /* Blue background */
+  background: linear-gradient(135deg, #3d84ff, #9500ff);
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -32,6 +33,7 @@ body {
   margin: 0;
   padding: 0;
   display: flex;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .navbar-menu li {
@@ -53,7 +55,7 @@ body {
   max-width: 800px;
   padding: 20px;
   margin: 0 auto;
-  background-color: #9500ff; /* Purple background */
+  background-color: #6700b1; /* Purple background */
   border-radius: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   margin-top: 40px;
@@ -73,13 +75,13 @@ h2 {
 }
 
 a {
-  color: #000000; /* Blue links */
+  color: #00ccff; /* Blue links */
   text-decoration: none;
   transition: color 0.3s ease, font-size 0.3s ease;
 }
 
 a:hover {
-  color: #54bdff;
+  color: #d0edff;
   font-size: 110%; /* Lighter blue hover color */
 }
 
@@ -102,7 +104,7 @@ body::after {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(135deg, #3d84ff, #9500ff);
+  background: linear-gradient(135deg, #1f53b7, #47009c);;
   opacity: 0.6;
 }
 
@@ -122,6 +124,7 @@ button {
     margin-top: 40px;
     padding: 20px;
     background-color: #430069;
+    background: linear-gradient(90deg, #1f53b7, #47009c);;
     color: #ffffff;
 }
   
@@ -173,9 +176,11 @@ button {
         left: 0;
         width: 100%;
         background-color: #3d84ff;
+        background: linear-gradient(90deg, #3d84ff, #9500ff);
         border-bottom: 2px solid #ffffff;
+        opacity: 0;
         z-index: 1;
-        display: none;
+        display: flex;
     }
 
     .footer p {
@@ -191,6 +196,7 @@ button {
 
     #navbar-toggle:checked ~ .navbar-menu {
         display: flex;
+        opacity: 1;
     }
 
     .navbar-hamburger {
