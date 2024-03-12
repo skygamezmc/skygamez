@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Click the Fish</title>
+</head>
+<style>
+body {
+    background-color: #e3c574;
+}
+.welcome {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  font-size: 300%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+.fish {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50%;
+}
+</style>
+<body>
+
+<script>
+function bean() {
+  var audio = document.getElementById("audio");
+  audio.play();
+}
+</script>
+<audio id="audio" src="music.mp3"></audio>
+
+<marquee behavior="scroll" direction="right" class="welcome">Welcome to Click the Fish!</marquee>
+
+<form class="fish">
+  <img src="fish.jpg" onclick="bean()">
+</form>
+
+</body>
+</html>
