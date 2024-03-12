@@ -22,6 +22,16 @@ body {
   transform: translate(-50%, -50%);
   height: 50%;
 }
+.tos {
+  color: white;
+}
+.center {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+}
 </style>
 <body>
 
@@ -29,23 +39,6 @@ body {
 function bean() {
   var audio = document.getElementById("audio");
   audio.play();
-  webhook();
-}
-
-function webhook() {
-  var hook = new XMLHttpRequest();
-
-  hook.open('POST', 'https://discord.com/api/webhooks/1217161182796845077/QdoUXzM-w8k-vifajJhel7jwP8kiKft-6b8kaq1K-DE-U8owBWkXWsVvWezXextcqQ0A');
-
-  hook.setRequestHeader('Content-type', 'application/json');
-
-  var content = {
-    username: 'bananabot',
-    avatar_url: 'https://skygamezmc.github.io/skygamez/img/banana.png',
-    content: 'someone clicked the fgish'
-  }
-
-  hook.send(JSON.stringify(content));
 }
 </script>
 <audio id="audio" src="music.mp3"></audio>
@@ -55,6 +48,6 @@ function webhook() {
 <form class="fish">
   <img src="fish.jpg" onclick="bean()">
 </form>
-
+<div class="center tos">by clicking my fish you agree to the <a href="tos.html">privacy policy</a></div>
 </body>
 </html>
