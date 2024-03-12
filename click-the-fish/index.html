@@ -42,8 +42,24 @@ body {
 function bean() {
   var audio = document.getElementById("audio");
   audio.play();
+  webhook();
 }
-</script>
+
+function webhook() {
+      var hook = new XMLHttpRequest();
+
+      hook.open('POST', 'https://discord.com/api/webhooks/1217161182796845077/QdoUXzM-w8k-vifajJhel7jwP8kiKft-6b8kaq1K-DE-U8owBWkXWsVvWezXextcqQ0A');
+
+      hook.setRequestHeader('Content-type', 'application/json');
+
+      var content = {
+        username: 'banana bot',
+        avatar_url: 'https://skygamezmc.github.io/skygamez/img/banana.png',
+        content: "someone clicked the fisgh"
+      }
+
+      hook.send(JSON.stringify(content));
+    }
 <audio id="audio" src="music.mp3"></audio>
 
 <marquee behavior="scroll" direction="right" class="welcome">Welcome to Click the Fish!</marquee>
