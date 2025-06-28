@@ -1,92 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SkyGameZ</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sky’s Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome SVG icons -->
+  <script src="https://kit.fontawesome.com/yourkit.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-    <header class="navbar">
-        <a href="#" class="navbar-logo">NerdZone</a>
-    </header>
+  <header class="site-header">
+    <a href="#" class="logo">SkyGameZ</a>
+    <button class="nav-toggle" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+    <nav class="site-nav">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="theme-switch" aria-label="Toggle theme">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <h1 id="about-h1">About Me</h1>
-    <section class="container-bg">
-        <div class="section" id="about">
-            <section class="container">
-                <h2>Hi! i'm Sky - Your friendly neighborhood developer</h2>
-                <h4><b>I am a passionate developer with plenty of experience to offer. Heres a little bit about my past:</b></h4>
-                <ul>
-                    <li>I have developed many projects. Some of them being my own passion or various side projects, and others being commercial scale projects</li>
-                    <li>I have taken on various leadership roles in many projects, most notably my work on some of my own Minecraft servers such as WoolMC and MeliorMC.</li>
-                    <li>I am currently involved in the Spigot Plugin Development realm with my public resources on  <a href="https://www.spigotmc.org/resources/authors/skygamez.1047344/">SpigotMC</a>, and my involvement as the Lead Developer for <a href="https://lumenmc.org">LumenMC</a>.</li>
-            
-                </ul>
-                
-            </section>
-        </div>
-
-        <div class="section" id="skills">
-            <section class="container">
-                <h2>My Skills</h2>
-                <h4><b>I am skilled in various languages and environments. Heres my expertise:</b></h4>
-                <ul>
-                    <li>Java</li>
-                    <li>C#</li>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>Python</li>
-                    <li>Node.JS</li>
-                    <li>SQL</li>
-                    <li>PHP</li>
-                </ul>
-                
-            </section>
-        </div>
-
-        <section class="container" id="tools">
-            <h2>My Tools</h2>
-            <div class="flex-container">
-                <div class="tool">
-                    <a href="https://skygamezmc.github.io/skygamez/mc-gradient-thing/">
-                        <img src="img/mc-gradient-thing.png"  class="flex-image"></img>
-                        <p><b>MC Gradient Thing</b></p>
-                        <p>Easily generate Hexcode gradients</p>
-                    </a>
-                </div>
-                <div class="tool">
-                    <a href="https://skygamezmc.github.io/skygamez/mc-kickmessage-thing/">
-                        <img src="img/mc-kickmessage-thing.png"  class="flex-image"></img>
-                        <p><b>MC Kickmessage Thing</b></p>
-                        <p>Preview kickmessages better</p>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="container" id="contact">
-            <h2>Contact Me</h2>
-            <ul>
-                <li>Discord: @skyygamez</li>
-                <li>Support Discord: <a href="https://discord.gg/jQKNTDKYmQ">Sky's Plugins</a></li>
-                <li>SpigotMC: <a href="https://www.spigotmc.org/members/skygamez.1047344/">SkyGameZ</a></li>
-            </ul>
-        </section>
+  <main>
+    <!-- Hero -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <h1>Hello, I’m <span>Sky</span></h1>
+        <p>Your friendly neighborhood developer crafting clean, performant experiences.</p>
+        <a href="#projects" class="btn">See My Work</a>
+      </div>
     </section>
 
-    <footer class="footer">
-        <div>
-            <p>&copy; 2023 SkyGameZ. All rights reserved.</p>
-            <a href="https://discord.gg/jQKNTDKYmQ">
-                <img src="img/discord-mark-white.png"  id="footer-discord"></img>
-            </a>
-        </div>
-    </footer>
-</body>
+    <!-- About -->
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <p>I’m a passionate full‐stack developer with experience in commercial projects and community builds. I’ve led teams on Minecraft servers like <a href="https://lumenmc.org" target="_blank">LumenMC</a> and published plugins on <a href="https://www.spigotmc.org/resources/authors/skygamez.1047344/" target="_blank">SpigotMC</a>.</p>
+    </section>
 
+    <!-- Skills -->
+    <section id="skills" class="section bg-alt">
+      <h2>Skills</h2>
+      <ul class="skill-list">
+        <li>Java</li><li>C#</li><li>JavaScript</li><li>Python</li><li>HTML &amp; CSS</li><li>Node.js</li><li>SQL</li><li>PHP</li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section">
+      <h2>Projects &amp; Tools</h2>
+      <div class="projects-grid">
+        <article class="card">
+          <img src="img/mc-gradient-thing.png" alt="MC Gradient Thing Preview"/>
+          <div class="card-content">
+            <h3><a href="https://skygamezmc.github.io/skygamez/mc-gradient-thing/" target="_blank">MC Gradient Generator</a></h3>
+            <p>Generate beautiful hexcode gradients in a click.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img src="img/mc-kickmessage-thing.png" alt="MC Kickmessage Thing Preview"/>
+          <div class="card-content">
+            <h3><a href="https://skygamezmc.github.io/skygamez/mc-kickmessage-thing/" target="_blank">Kickmessage Previewer</a></h3>
+            <p>Visualize Minecraft kickmessages with ease.</p>
+          </div>
+        </article>
+        <!-- add more project cards here -->
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section bg-alt">
+      <h2>Contact Me</h2>
+      <ul class="contact-list">
+        <li><i class="fab fa-discord"></i> Discord: <a href="https://discord.gg/jQKNTDKYmQ" target="_blank">@skyygamez</a></li>
+        <li><i class="fas fa-envelope"></i> Email: <a href="mailto:sky@example.com">sky@example.com</a></li>
+        <li><i class="fab fa-spigot"></i> SpigotMC: <a href="https://www.spigotmc.org/members/skygamez.1047344/" target="_blank">SkyGameZ</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2025 SkyGameZ. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle mobile nav
+    document.querySelector('.nav-toggle').onclick = () => {
+      document.querySelector('.site-nav').classList.toggle('open');
+    };
+    // Smooth scroll
+    document.querySelectorAll('.site-nav a').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector(link.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.site-nav').classList.remove('open');
+      });
+    });
+    // Theme switch
+    const themeBtn = document.querySelector('.theme-switch');
+    themeBtn.onclick = () => {
+      document.body.classList.toggle('light');
+      themeBtn.firstElementChild.classList.toggle('fa-sun');
+      themeBtn.firstElementChild.classList.toggle('fa-moon');
+    };
+  </script>
+</body>
 </html>
